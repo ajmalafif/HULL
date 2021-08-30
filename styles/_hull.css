@@ -1,0 +1,97 @@
+/* ----- Mixins ----- */
+
+.is-hashed {
+  background-image: repeating-linear-gradient(-45deg, hsla(var(--pageText-hsl), .5) 0, hsla(var(--pageText-hsl), .5) 1px, transparent 0, transparent 50%);
+  background-size: 8px 8px;
+  background-repeat: repeat;
+}
+
+/* ----- Buttons -----*/
+
+.btn {
+  /* default style button */
+  @apply inline-block relative bg-pageBG px-5 py-2 text-center rounded-full border font-sans font-semibold text-xs;
+
+  /* default: hover */
+  &:not(.is-primary):not(.is-white):not(.is-disabled):not(.is-soldout) {
+    &.is-active,
+    &:hover {
+      @apply bg-pageText border-pageText text-pageBG;
+    }
+  }
+
+  /* default: inverted */
+  &.is-inverted {
+    @apply bg-pageText border-pageBG text-pageBG;
+
+    &:not(.is-primary):not(.is-white):not(.is-disabled):not(.is-soldout) {
+      &.is-active,
+      &:hover {
+        @apply bg-pageBG border-pageBG text-pageText;
+      }
+    }
+  }
+
+  /* default: disabled */
+  &.is-disabled:not(.is-primary),
+  &.is-soldout {
+    @apply bg-pageBG opacity-20;
+  }
+
+
+  /* primary style button */
+  &.is-primary {
+    @apply bg-pageText border-pageText text-pageBG;
+
+    /* primary: inverted */
+    &.is-inverted {
+      @apply bg-pageBG border-pageBG text-pageText;
+    }
+  }
+
+
+  /* white style button */
+  &.is-white {
+    @apply bg-white border-white text-black;
+  }
+
+
+  /* text-based button */
+  &.is-text {
+    @apply px-0 bg-transparent border-transparent;
+
+    &.is-disabled,
+    &:not(.is-disabled):hover {
+      @apply opacity-60;
+    }
+  }
+
+
+  /* large sized button */
+  &.is-large {
+    @apply text-2xl font-normal px-7;
+  }
+}
+
+
+/* ----- Marquees ----- */
+
+.marquee {
+  @apply border-b;
+  
+  &--item {
+    @apply flex;
+  }
+
+  &--text {
+    @apply block p-8 text-5xl leading-none;
+  }
+
+  &--photo {
+    @apply relative w-32 sm:w-48 px-8 py-4 sm:px-12 sm:py-8;
+
+    img {
+      filter: invert(1);
+    }
+  }
+}
