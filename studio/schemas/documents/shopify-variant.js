@@ -4,7 +4,7 @@ export default {
   name: 'productVariant',
   title: 'Variant',
   type: 'document',
-  __experimental_actions: ['update', 'publish', 'delete'], // disable for initial publish
+  // __experimental_actions: ['update', 'publish', 'delete'], // disable for initial publish
   fieldsets: [
     {
       title: 'Shopify',
